@@ -46,8 +46,6 @@ require("lazy").setup({
   require("plugins.database"),
   require("plugins.misc"),
   require("plugins.harpoon"),
-  require("plugins.avante"),
-  require("plugins.chatgpt"),
   require("plugins.aerial"),
   require("plugins.toggleterm"),
   require("plugins.compiler"),

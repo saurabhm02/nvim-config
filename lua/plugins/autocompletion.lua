@@ -21,40 +21,40 @@ return {
 		"hrsh7th/cmp-path",
 		"rafamadriz/friendly-snippets",
 
-		-- GitHub Copilot integration
-		{
-			"zbirenbaum/copilot-cmp",
-			event = "InsertEnter",
-			config = function()
-				require("copilot_cmp").setup()
-			end,
-			dependencies = {
-				{
-					"zbirenbaum/copilot.lua",
-					cmd = "Copilot",
-					opts = { -- Add opts here
-						filetypes = {
-							markdown = true,
-							help = true,
-							yaml = true,
-							dockerfile = true,
-							typescript = true,
-							javascript = true,
-							typescriptreact = true,
-							javascriptreact = true,
-							java = true,
-							python = true,
-						},
-					},
-					config = function()
-						require("copilot").setup({
-							suggestion = { enabled = true }, -- Disable inline suggestions
-							panel = { enabled = true }, -- Disable Copilot panel
-						})
-					end,
-				},
-			},
-		},
+		-- GitHub Copilot integration (commented out)
+		-- {
+		-- 	"zbirenbaum/copilot-cmp",
+		-- 	event = "InsertEnter",
+		-- 	config = function()
+		-- 		require("copilot_cmp").setup()
+		-- 	end,
+		-- 	dependencies = {
+		-- 		{
+		-- 			"zbirenbaum/copilot.lua",
+		-- 			cmd = "Copilot",
+		-- 			opts = { -- Add opts here
+		-- 				filetypes = {
+		-- 					markdown = true,
+		-- 					help = true,
+		-- 					yaml = true,
+		-- 					dockerfile = true,
+		-- 					typescript = true,
+		-- 					javascript = true,
+		-- 					typescriptreact = true,
+		-- 					javascriptreact = true,
+		-- 					java = true,
+		-- 					python = true,
+		-- 				},
+		-- 			},
+		-- 			config = function()
+		-- 				require("copilot").setup({
+		-- 					suggestion = { enabled = true }, -- Disable inline suggestions
+		-- 					panel = { enabled = true }, -- Disable Copilot panel
+		-- 				})
+		-- 			end,
+		-- 		},
+		-- 	},
+		-- },
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -136,7 +136,7 @@ return {
 				end, { "i", "s" }),
 			}),
 			sources = {
-				{ name = "copilot" }, -- Add GitHub Copilot source
+				-- { name = "copilot" }, -- Disabled Copilot source
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
 				{ name = "buffer" },
@@ -147,7 +147,7 @@ return {
 				format = function(entry, vim_item)
 					vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
 					vim_item.menu = ({
-						copilot = "[Copilot]",
+						-- copilot = "[Copilot]", -- Removed Copilot entry
 						nvim_lsp = "[LSP]",
 						luasnip = "[Snippet]",
 						buffer = "[Buffer]",
